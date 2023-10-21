@@ -5,6 +5,14 @@ terraform {
       version = "5.21.0"
     }
   }
+
+  backend "s3" {
+    bucket = "tf-backend-sample"
+    key = "terraform.tfstate"
+    region = "ap-south-1"
+    dynamodb_table = "tf-sample"
+    
+  }
 }
 
 provider "aws" {
